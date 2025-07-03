@@ -155,7 +155,10 @@ void AutowareJoyControllerNode::onJoy()
   }
 
   last_joy_received_time_ = msg->header.stamp;
-  if (joy_type_ == "G29") {
+  if(joy_type_ == "KP20"){
+    joy_ = std::make_shared<const KP20_JoyConverter>(*msg);
+  }
+    else if (joy_type_ == "G29") {
     joy_ = std::make_shared<const G29JoyConverter>(*msg);
   } else if (joy_type_ == "DS4") {
     joy_ = std::make_shared<const DS4JoyConverter>(*msg);

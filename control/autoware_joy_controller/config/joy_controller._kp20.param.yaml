@@ -1,0 +1,28 @@
+/**:
+  ros__parameters:
+    # 基础配置
+    joy_type: KP20
+    update_rate: 20.0  # 建议提高至20Hz
+    
+    # 灵敏度配置
+    accel_ratio: 3.0
+    brake_ratio: 5.0
+    steer_ratio: 0.5
+    
+    # 转向特性
+    steering_angle_velocity: 0.15
+    steer_deadzone: 0.05  # 转向死区
+    
+    # 高级控制
+    accel_sensitivity: 1.2  # 轻微非线性曲线
+    brake_sensitivity: 1.5  # 刹车初段更敏感
+    
+    # 速度控制
+    control_command:
+      velocity_gain: 3.0
+      max_forward_velocity: 20.0
+      max_backward_velocity: 3.0
+      backward_accel_ratio: 0.8  # 倒车加速度应小于前进
+      
+    # 新增安全限制
+    emergency_brake_threshold: 0.8  # 急刹触发阈值
